@@ -4,24 +4,23 @@ const sechash = require('sechash')
 const defaultName = 'hoge foo'
 const title = 'Your identicon'
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  const name = defaultName
+function render (res, name) {
   const nameHash = sechash.basicHash('sha1', name)
   res.render('index', {
     title: title,
     name: name,
     nameHash: nameHash
   })
+}
+
+/* GET home page. */
+router.get('/', (req, res, next) => {
+  const name = defaultName
+  render(res, name)
 })
 
 router.post('/', (req, res, next) => {
   const name = req.body.name
-  const nameHash = sechash.basicHash('sha1', name)
-  res.render('index', {
-    title: title,
-    name: name,
-    nameHash: nameHash
-  })
+  render(res, name)
 })
 module.exports = router
