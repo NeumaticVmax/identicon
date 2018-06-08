@@ -14,7 +14,9 @@
     "express": "~4.15.5",
     "morgan": "~1.9.0",
     "nodemon": "^1.17.5",
+    "redis": "^2.8.0",
     "request": "^2.87.0",
+    "safe-buffer": "^5.1.2",
     "sechash": "^0.2.1",
     "serve-favicon": "~2.4.5"
   },
