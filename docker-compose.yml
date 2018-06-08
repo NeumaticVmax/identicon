@@ -1,0 +1,10 @@
+version: "3"
+services:
+  identicon:
+    image: "teraokaseiko/digi-node:1.0"
+    environment:
+      - ENV=DEV
+    volumes:
+      - /digi/appz/identicon:/app
+    ports:
+      - "3000:3000"
