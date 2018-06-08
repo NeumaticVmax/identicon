@@ -101,6 +101,8 @@ function awsStartContainer () {
     eval "$(docker-machine env $EC2_NAME --shell /bin/bash)"
     docker-compose ${COMPOSE_ARGS_AWS} stop
     docker-compose ${COMPOSE_ARGS_AWS} rm --force -v
+    # DockerHubにログオンする
+    docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
     # Dockerイメージは一旦削除して再ダウンロードする。
     docker image rm "${DOCKER_HUB_USER}/${APP}:${APP_VER}"
     docker-compose ${COMPOSE_ARGS_AWS} up -d; ret=$?
