@@ -23,4 +23,18 @@ describe('identicon Micro Service', () => {
         })
     })
   })
+  describe('POST /', () => {
+    it('レスポンスコード 200, Content-Type text/html; charset=utf-8 が返されること', (done) => {
+      request(app)
+        .post('/')
+        .type('form')
+        .send({name: 'hoge'})
+        .expect(200)
+        .expect('Content-Type', 'text/html; charset=utf-8')
+        .end((err, res) => {
+          if (err) return done(err)
+          done()
+        })
+    })
+  })
 })

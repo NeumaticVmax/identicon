@@ -6,3 +6,8 @@ services:
       - ENV=PROD
     ports:
       - "3000:3000"
+    links:
+      - dnmonster
+
+  dnmonster:
+    image: "amouat/dnmonster:1.0"
