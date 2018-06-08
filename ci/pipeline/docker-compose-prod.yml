@@ -1,0 +1,8 @@
+version: "3"
+services:
+  identicon:
+    image: "kazsas/identicon:1.0"
+    environment:
+      - ENV=PROD
+    ports:
+      - "3000:3000"

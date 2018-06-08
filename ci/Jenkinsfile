@@ -1,0 +1,21 @@
+node {
+  stage('Preparation') {
+    git 'https://github.com/NeumaticVmax/identicon.git'
+  }
+  stage('Docker Build') {
+      sh 'ls -la'
+      sh 'bash ./ci/pipeline/ci-dockerBuild.sh'
+  }
+  stage('UnitTest') {
+      sh 'bash ./ci/pipeline/ci-unitTest.sh'
+  }
+  stage('Push DockerImage') {
+      sh 'bash ./ci/pipeline/ci-pushDockerHub.sh'
+  }
+  stage('Deploy') {
+      sh 'bash ./ci/pipeline/ci-deploy.sh'
+  }
+  stage('Closing') {
+      sh 'bash ./ci/pipeline/ci-closing.sh'
+  }
+}
