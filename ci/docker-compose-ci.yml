@@ -1,0 +1,8 @@
+version: "3"
+services:
+  identicon:
+    build:
+      context: ../
+      dockerfile: ci/Dockerfile-ci
+    environment:
+      - ENV=PROD
